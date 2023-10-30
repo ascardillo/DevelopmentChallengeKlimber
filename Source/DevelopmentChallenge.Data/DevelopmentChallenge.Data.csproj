@@ -48,6 +48,7 @@
     <Compile Include="Classes\Cuadrado.cs" />
     <Compile Include="Classes\FormaGeometrica.cs" />
     <Compile Include="Classes\FormaGeometricaBase.cs" />
+    <Compile Include="Classes\Rectangulo.cs" />
     <Compile Include="Classes\TrapecioRectangulo.cs" />
     <Compile Include="Classes\TrianguloEquilatero.cs" />
     <Compile Include="Utils\ResultTotalesFormasGeometricas.cs" />

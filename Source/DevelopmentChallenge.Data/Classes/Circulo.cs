@@ -27,5 +27,10 @@ namespace DevelopmentChallenge.Data.Classes
         {
             return (decimal)Math.PI * _lado;
         }
+
+        public override string Descripcion()
+        {
+            return "Circulo";
+        }
     }
 }

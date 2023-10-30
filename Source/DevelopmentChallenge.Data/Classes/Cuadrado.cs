@@ -27,5 +27,10 @@ namespace DevelopmentChallenge.Data.Classes
         {
             return _lado * 4;
         }
+
+        public override string Descripcion()
+        {
+            return "Cuadrado";
+        }
     }
 }

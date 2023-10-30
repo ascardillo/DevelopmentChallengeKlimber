@@ -27,5 +27,10 @@ namespace DevelopmentChallenge.Data.Classes
         {
             return _lado * 3;
         }
+
+        public override string Descripcion()
+        {
+            return "Triangulo";
+        }
     }
 }

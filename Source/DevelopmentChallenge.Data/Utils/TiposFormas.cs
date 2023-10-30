@@ -12,5 +12,6 @@ namespace DevelopmentChallenge.Data.Utils
         Circulo = 2,
         TrianguloEquilatero = 3,
         TrapecioRectangulo = 4,
+        Rectangulo = 5,
     }
 }

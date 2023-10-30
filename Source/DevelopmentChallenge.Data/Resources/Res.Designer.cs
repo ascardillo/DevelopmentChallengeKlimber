@@ -142,6 +142,24 @@ namespace DevelopmentChallenge.Data.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Rectangulo.
+        /// </summary>
+        public static string Rectangulo {
+            get {
+                return ResourceManager.GetString("Rectangulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Rectangulos.
+        /// </summary>
+        public static string RectanguloN {
+            get {
+                return ResourceManager.GetString("RectanguloN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Reporte de Formas.
         /// </summary>
         public static string ReporteDeFormas {

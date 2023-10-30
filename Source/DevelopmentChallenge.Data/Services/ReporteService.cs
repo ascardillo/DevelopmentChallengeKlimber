@@ -40,17 +40,15 @@ namespace DevelopmentChallenge.Data.Services
             _sb.Append($"<h1>{_culture.GetValue("ReporteDeFormas")}</h1>");
         }
 
-        private void AgregarBody(ResultTotalesFormasGeometricas datosFormasGeometricas)
+        private void AgregarBody(List<ResultTotales> resultTotales)
         {
-            var totalesCuadrados = datosFormasGeometricas.TotalesCuadrados;
-            var totalesCirculos = datosFormasGeometricas.TotalesCirculos;
-            var totalesTriangulos = datosFormasGeometricas.TotalesTriangulos;
-            var totalesTrapecios = datosFormasGeometricas.TotalesTrapeciosRectangulos;
-
-            AgregarLinea(totalesCuadrados.Total, _culture.GetValue("Cuadrado", totalesCuadrados.Total), totalesCuadrados.TotalArea, totalesCuadrados.TotalPerimetro);
-            AgregarLinea(totalesCirculos.Total, _culture.GetValue("Circulo", totalesCirculos.Total), totalesCirculos.TotalArea, totalesCirculos.TotalPerimetro);
-            AgregarLinea(totalesTriangulos.Total, _culture.GetValue("Triangulo", totalesTriangulos.Total), totalesTriangulos.TotalArea, totalesTriangulos.TotalPerimetro);
-            AgregarLinea(totalesTrapecios.Total, _culture.GetValue("TrapecioRectangulo", totalesTrapecios.Total), totalesTrapecios.TotalArea, totalesTrapecios.TotalPerimetro);
+            foreach (var totales in resultTotales)
+            {
+                AgregarLinea(totales.Total,
+                    _culture.GetValue(totales.Descripcion, totales.Total),
+                    totales.TotalArea, 
+                    totales.TotalPerimetro);
+            }
         }
 
         private void AgregarLinea(int cantidad, string descripcion, decimal area, decimal perimetro)
@@ -63,29 +61,20 @@ namespace DevelopmentChallenge.Data.Services
             _sb.Append($"{cantidad} {descripcion} | {_culture.GetValue("Area")} {area:#.##} | {_culture.GetValue("Perimetro")} {perimetro:#.##} <br/>");
         }
 
-        private void AgregarFooter(ResultTotalesFormasGeometricas totales)
+        private void AgregarFooter(List<ResultTotales> totales)
         {
             _sb.Append(_culture.GetValue("Total").ToUpper() + ":<br/>");
 
             _sb.Append(
-                (totales.TotalesCuadrados.Total
-                + totales.TotalesCirculos.Total
-                + totales.TotalesTriangulos.Total
-                + totales.TotalesTrapeciosRectangulos.Total)
+                (totales.Sum(x => x.Total))
                 + $" {_culture.GetValue("Formas").ToLower()} ");
 
             _sb.Append($"{_culture.GetValue("Perimetro")} " + 
-                (totales.TotalesCuadrados.TotalPerimetro 
-                + totales.TotalesTriangulos.TotalPerimetro 
-                + totales.TotalesCirculos.TotalPerimetro
-                + totales.TotalesTrapeciosRectangulos.TotalPerimetro
+                (totales.Sum(s => s.TotalPerimetro)
                 ).ToString("#.##") + " ");
 
             _sb.Append($"{_culture.GetValue("Area")} " + 
-                (totales.TotalesCuadrados.TotalArea 
-                + totales.TotalesTriangulos.TotalArea 
-                + totales.TotalesCirculos.TotalArea
-                + totales.TotalesTrapeciosRectangulos.TotalArea
+                (totales.Sum(s => s.TotalArea)
                 ).ToString("#.##"));
         }
     }

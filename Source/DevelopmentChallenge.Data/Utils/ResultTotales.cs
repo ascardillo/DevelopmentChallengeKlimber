@@ -11,5 +11,6 @@ namespace DevelopmentChallenge.Data.Utils
         public int Total { get; set; }
         public decimal TotalArea { get; set; }
         public decimal TotalPerimetro { get; set;}
+        public string Descripcion { get; set;}
     }
 }

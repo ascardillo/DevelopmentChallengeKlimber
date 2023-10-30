@@ -34,5 +34,10 @@ namespace DevelopmentChallenge.Data.Classes
 
             return _altura + _baseMayor + _baseMenor + (decimal)ladoPerpendicular;
         }
+
+        public override string Descripcion()
+        {
+            return "TrapecioRectangulo";
+        }
     }
 }

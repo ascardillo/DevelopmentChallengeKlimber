@@ -13,5 +13,6 @@ namespace DevelopmentChallenge.Data.Classes
 
         public abstract decimal Area();
         public abstract decimal Perimetro();
+        public abstract string Descripcion();
     }
 }

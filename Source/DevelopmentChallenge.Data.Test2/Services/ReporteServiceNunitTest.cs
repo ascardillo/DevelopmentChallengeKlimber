@@ -124,5 +124,23 @@ namespace DevelopmentChallenge.Data.Test2.Services
                 "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Circulos | Area 13,01 | Perimetro 18,06 <br/>3 Triangulos | Area 49,64 | Perimetro 51,6 <br/>TOTAL:<br/>7 formas Perimetro 97,66 Area 91,65",
                 resumen);
         }
+
+        [TestCase]
+        public void TestResumenListaConUnRectangulo()
+        {
+            var cuadrados = new List<FormaGeometricaBase> { new Rectangulo(4,5) };
+            var resumen = _reporte.Imprimir(cuadrados, TipoIdioma.Castellano);
+
+            Assert.AreEqual("<h1>Reporte de Formas</h1>1 Rectangulo | Area 20 | Perimetro 18 <br/>TOTAL:<br/>1 formas Perimetro 18 Area 20", resumen);
+        }
+
+        [TestCase]
+        public void TestResumenListaConMasRectangulos()
+        {
+            var cuadrados = new List<FormaGeometricaBase> { new Rectangulo(4, 5), new Rectangulo(4, 5) };
+            var resumen = _reporte.Imprimir(cuadrados, TipoIdioma.Castellano);
+
+            Assert.AreEqual("<h1>Reporte de Formas</h1>2 Rectangulos | Area 40 | Perimetro 36 <br/>TOTAL:<br/>2 formas Perimetro 36 Area 40", resumen);
+        }
     }
 }
