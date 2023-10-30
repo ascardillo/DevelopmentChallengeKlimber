@@ -40,10 +40,8 @@ namespace DevelopmentChallenge.Data.Test2.Services
         [TestCase]
         public void TestResumenListaVaciaFormasEnItaliano()
         {
-            var reporte = new ReporteService();
-
             Assert.AreEqual("<h1>Elenco vuoto di forme!</h1>",
-                reporte.Imprimir(new List<FormaGeometricaBase>(), TipoIdioma.Italiano));
+                _reporte.Imprimir(new List<FormaGeometricaBase>(), TipoIdioma.Italiano));
         }
 
         [TestCase]
